@@ -1,0 +1,30 @@
+.movieBanner {
+  background-image: url('/src/assets/uri_the_surgical_strike.png');
+  height: 75vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+
+.movieCard {
+  min-height: 45vh;
+  width: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movieCard:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition-duration: 300ms;
+}
+
+.movieTitle {
+  border-radius: 0 0 12px 12px;
+}
