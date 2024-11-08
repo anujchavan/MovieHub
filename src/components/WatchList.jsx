@@ -86,6 +86,7 @@ const WatchList = ({ watchList, setWatchList }) => {
   };
 
   console.log("search", search);
+  console.log('searchMovie', searchMovie)
   console.log(`Name ${sortName} Rating ${sortRating} Popularity ${sortPopularity}`);
 
   return (
@@ -109,7 +110,7 @@ const WatchList = ({ watchList, setWatchList }) => {
         <table className='w-full'>
           <thead>
             <tr className='border-b-2 bg-slate-100'>
-              <th className='w-[40%] p-2 text-left hover:cursor-pointer hover:bg-slate-200' onClick={sortByName}>
+              <th className='w-[45%] p-2 text-left hover:cursor-pointer hover:bg-slate-200' onClick={sortByName}>
                 <span>Name</span>
                 {sortName === 'asc' && <FontAwesomeIcon icon={faArrowUp} className='pl-3' />}
                 {sortName === 'desc' && <FontAwesomeIcon icon={faArrowDown} className='pl-3' />}
@@ -125,16 +126,16 @@ const WatchList = ({ watchList, setWatchList }) => {
                 {sortPopularity === 'desc' && <FontAwesomeIcon icon={faArrowDown} className='pl-3' />}
               </th>
               <th className='w-[15%] p-2 text-left'>Genre</th>
-              <th className='w-[15%] p-2 text-left'></th>
+              <th className='w-[10%] p-2'></th>
             </tr>
           </thead>
 
-          {(watchList.length === 0 || searchMovie.length === 0) ?
+          {watchList.length === 0 || searchMovie.length === 0 ?
             <tbody className='h-[40vh]'>
               <tr>
                 <td colSpan="5" className='text-center text-lg font-semibold'>
-                  {watchList.length === 0 && "The popcorn’s ready, but your list is empty!"}
-                  {searchMovie.length === 0 && "Oops! We couldn’t find any movies matching your search"}
+                  {search.length === 0 && watchList.length === 0 && "The popcorn’s ready, but your list is empty!"}
+                  {search.length >= 1 && searchMovie.length === 0 && "Oops! We couldn’t find any movies matching your search"}
                 </td>
               </tr>
             </tbody>
@@ -150,7 +151,7 @@ const WatchList = ({ watchList, setWatchList }) => {
                     <td className='p-2'>{movie.vote_average.toFixed(1)}</td>
                     <td className='p-2'>{movie.popularity.toFixed(1)}</td>
                     <td className='p-2'>Action</td>
-                    <td className='p-2'>Delete</td>
+                    <td className='p-2 text-center'>Delete</td>
                   </tr>
                 )
               })}
