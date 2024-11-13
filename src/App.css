@@ -1,0 +1,47 @@
+.movieBanner {
+  height: 75vh;
+  background-size: cover;
+  background-position: center;
+  align-content: flex-end;
+}
+
+.movieCard {
+  min-height: 45vh;
+  width: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movieCard:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition-duration: 300ms;
+}
+
+.movieTitle {
+  border-radius: 0 0 12px 12px;
+}
+
+.moviesBackground {
+  background-image: url(https://cinerama.qodeinteractive.com/wp-content/uploads/2018/05/landing-img-backgroun-3.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.deleteMovie svg path {
+  fill: red;
+}
+
+.searchIcon {
+  position: absolute;
+  padding: 12px;
+}
+
+.searchIcon path {
+  fill: darkslategray;
+}
