@@ -113,11 +113,11 @@ const WatchList = ({ watchList, setWatchList, removeMovieWatchList }) => {
   };
 
   return (
-    <div>
-      <div className='flex flex-wrap justify-center m-4'>
+    <div className='watchlistContainer moviesBackground'>
+      <div className='flex flex-wrap justify-center p-4'>
         {genreList.map((genre) => {
           return (
-            <div onClick={() => setSelectedGenre(genre)} className={`flex justify-center items-center text-white font-bold rounded-md h-[2.5rem] w-[9rem] m-2 hover:cursor-pointer ${selectedGenre === genre ? 'bg-blue-400' : 'bg-gray-400/50'}`}>
+            <div onClick={() => setSelectedGenre(genre)} className={`flex justify-center items-center text-white font-bold rounded-md h-[2.5rem] w-[9rem] m-2 hover:cursor-pointer ${selectedGenre === genre ? 'activeGenre' : 'inactiveGenre'}`}>
               {genre}
             </div>
           )
@@ -128,7 +128,7 @@ const WatchList = ({ watchList, setWatchList, removeMovieWatchList }) => {
         <div>
           <FontAwesomeIcon icon={faMagnifyingGlass} className='searchIcon' />
           <input
-            className='h-[2.5rem] w-[18rem] bg-gray-200 outline-none pl-[45px]'
+            className='h-[2.5rem] w-[18rem] search outline-none rounded-md pl-[45px]'
             type="text"
             placeholder='Search Movie'
             value={search}
@@ -137,8 +137,8 @@ const WatchList = ({ watchList, setWatchList, removeMovieWatchList }) => {
         </div>
       </div>
 
-      <div className='border-2 rounded-md m-8'>
-        <table className='w-full'>
+      <div className='py-4 mx-12'>
+        <table className='watchlistTable w-full border-2'>
           <thead>
             <tr className='border-b-2 bg-slate-100'>
               <th className='w-[45%] p-2 text-left hover:cursor-pointer hover:bg-slate-200' onClick={sortByName}>

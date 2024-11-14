@@ -4,6 +4,8 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import Banner from './Banner';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Movies = ({ watchList, handleWatchList, removeMovieWatchList }) => {
 
@@ -13,6 +15,8 @@ const Movies = ({ watchList, handleWatchList, removeMovieWatchList }) => {
   const [pageNo, setPageNo] = useState(1);
 
   useEffect(() => {
+    AOS.init({ duration: 800 });  // duration (in milliseconds) of the animation
+
     const url = 'https://api.themoviedb.org/3/movie/popular';
 
     axios.get(`${url}?api_key=${apiKey}&language=en-US&page=${pageNo}`)
@@ -45,8 +49,8 @@ const Movies = ({ watchList, handleWatchList, removeMovieWatchList }) => {
           Trending Movies
         </div>
 
-        <div className='flex flex-wrap justify-center columns-5'>
-          {movies?.results?.map((movie) => {
+        <div className='flex flex-wrap justify-center'>
+          {movies?.results?.map((movie, index) => {
             return (
               <MovieCard
                 key={movie.id}
@@ -56,6 +60,7 @@ const Movies = ({ watchList, handleWatchList, removeMovieWatchList }) => {
                 watchList={watchList}
                 handleWatchList={handleWatchList}
                 removeMovieWatchList={removeMovieWatchList}
+                aosDelay={index * 100}  // Adds a custom delay to each MovieCard so that each card appears one by one with a slight delay
               />
             )
           })}

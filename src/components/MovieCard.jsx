@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MovieCard = ({ movie, poster, movieTitle, watchList, handleWatchList, removeMovieWatchList }) => {
+const MovieCard = ({ movie, poster, movieTitle, watchList, handleWatchList, removeMovieWatchList, aosDelay }) => {
 
   const isMovieInWatchlist = (movie) => {
     for (let i = 0; i < watchList.length; i++) {
@@ -12,7 +12,7 @@ const MovieCard = ({ movie, poster, movieTitle, watchList, handleWatchList, remo
   }
 
   return (
-    <div className='movieCard m-4' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${poster})` }}>
+    <div data-aos="fade-right" data-aos-delay={aosDelay} className='movieCard m-4' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${poster})` }}>
       {isMovieInWatchlist(movie) ?
         <div onClick={() => removeMovieWatchList(movie)} className='flex justify-center items-center rounded-lg m-2 h-8 w-8 bg-gray-900/70'>
           &#10060;
