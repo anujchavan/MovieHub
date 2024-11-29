@@ -1,16 +1,36 @@
 import React from 'react';
-import MovieIcon from '../assets/MovieIcon.png';
-import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import MovieIcon from '../assets/MovieIcon.svg';
+import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ search, setSearch }) => {
+
+  const location = useLocation();
+
   return (
-    <div className='flex border space-x-8 items-center pl-3 py-4'>
+    <div className='flex items-center justify-between py-7'>
 
-      <img className='w-[40px]' src={MovieIcon} alt="MovieIcon" />
+      <div className='flex space-x-3'>
+        <img className='w-[40px]' src={MovieIcon} alt="MovieIcon" />
+        <Link className='text-white text-2xl font-medium heading' to="/" onClick={() => setSearch('')}>Movies</Link>
+        <Link className='text-white text-2xl font-medium heading' to="/watchlist">Watchlist</Link>
+      </div>
 
-      <Link className='text-blue-500 text-3xl font-medium font-serif' to="/">Movies</Link>
-
-      <Link className='text-blue-500 text-3xl font-medium font-serif' to="/watchlist">Watchlist</Link>
+      {location.pathname === '/' &&
+        <div className='flex justify-center'>
+          <div>
+            <FontAwesomeIcon icon={faMagnifyingGlass} className='searchIcon searchIconMovies' />
+            <input
+              className='h-[2.5rem] w-[18rem] searchMovies outline-none rounded-md pl-[45px]'
+              type="text"
+              placeholder='Search Movie'
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+        </div>
+      }
 
     </div>
   )

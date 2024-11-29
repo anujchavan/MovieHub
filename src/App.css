@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: "Bitter", serif;
+}
+
+.App {
+  background-image: url(./assets/Gradient.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 0 80px;
+  min-height: 100vh;
+}
+
+.slider-container {
+  margin-top: 15px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
 .movieBanner {
   height: 75vh;
   background-size: cover;
@@ -27,10 +48,25 @@
   border-radius: 0 0 12px 12px;
 }
 
-.moviesBackground {
-  background-image: url(https://cinerama.qodeinteractive.com/wp-content/uploads/2018/05/landing-img-backgroun-3.jpg);
-  background-size: cover;
-  background-position: center;
+.heading {
+  padding: 6px 12px;
+}
+
+.heading:hover {
+  background-color: rgb(55 65 81 /1);
+  border-radius: 6px;
+}
+
+.searchMovies {
+  background-color: rgb(55 65 81 / 1)
+}
+
+.searchMovies:focus {
+  background-color: white !important;
+}
+
+.searchIconMovies path {
+  fill: rgb(156 163 175 / 1);
 }
 
 .deleteMovie svg path {
@@ -42,7 +78,7 @@
   padding: 12px;
 }
 
-.searchIcon path {
+.searchIconWatchlist path {
   fill: darkslategray;
 }
 
@@ -65,4 +101,37 @@
 
 .search {
   background-color: #f5f5f5;
+}
+
+.pagination {
+  height: 40px;
+  width: 40px;
+  border: 1px solid white;
+  border-radius: 6px;
+  align-content: center;
+  text-align: center;
+}
+
+.navigation:hover {
+  background-color: rgb(55 65 81 / 1);
+}
+
+.genreOptions::-webkit-scrollbar {
+  display: none;
+}
+
+.tableBorder {
+  border-top: 1px solid;
+  border-color: rgb(255 255 255 / 0.2);
+}
+
+.headBorder {
+  border-bottom: 1px solid white;
+}
+
+.noMovieFound {
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 100px);
+  padding: 40px 0;
 }

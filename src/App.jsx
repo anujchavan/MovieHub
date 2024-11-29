@@ -4,10 +4,12 @@ import './App.css';
 import Movies from './components/Movies';
 import Navbar from './components/Navbar';
 import WatchList from './components/WatchList';
+import SearchMovie from './components/SearchMovie';
 
 function App() {
 
   const [watchList, setWatchList] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     const localStorageWatchlist = localStorage.getItem("watchlistMovies");
@@ -34,17 +36,21 @@ function App() {
   };
 
   return (
-    <>
-      <Navbar />
+    <div className='App'>
+      <Navbar search={search} setSearch={setSearch} />
       <Routes>
         <Route
           path='/'
           element={
-            <Movies
-              watchList={watchList}
-              handleWatchList={handleWatchList}
-              removeMovieWatchList={removeMovieWatchList}
-            />
+            search.length === 0 ?
+              <Movies
+                watchList={watchList}
+                handleWatchList={handleWatchList}
+                removeMovieWatchList={removeMovieWatchList}
+              /> :
+              <SearchMovie
+                search={search}
+              />
           }
         />
         <Route
@@ -58,7 +64,7 @@ function App() {
           }
         />
       </Routes>
-    </>
+    </div>
   )
 }
 

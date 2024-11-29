@@ -29,6 +29,7 @@ const Movies = ({ watchList, handleWatchList, removeMovieWatchList }) => {
   };
 
   const prevPage = () => {
+    scrollToSection('movies');
     if (pageNo === 1) {
       setPageNo(1);
     } else {
@@ -37,6 +38,7 @@ const Movies = ({ watchList, handleWatchList, removeMovieWatchList }) => {
   };
 
   const nextPage = () => {
+    scrollToSection('movies');
     setPageNo(pageNo + 1);
   };
 
@@ -45,7 +47,7 @@ const Movies = ({ watchList, handleWatchList, removeMovieWatchList }) => {
       <Banner movies={movies} />
 
       <div className='pt-5 moviesBackground' id='movies'>
-        <div className='m-3 text-white text-2xl font-bold text-center font-serif'>
+        <div className='m-3 text-white text-2xl font-bold text-center'>
           Trending Movies
         </div>
 
@@ -66,17 +68,17 @@ const Movies = ({ watchList, handleWatchList, removeMovieWatchList }) => {
           })}
         </div>
 
-        <div className='bg-blue-300 p-3 mt-4 rounded-md flex justify-center items-center'>
-          <div className='hover:cursor-pointer' onClick={prevPage}>
-            <FontAwesomeIcon icon={faArrowLeft} onClick={() => scrollToSection('movies')} />
+        <div className='text-white py-5 rounded-md flex justify-center items-center'>
+          <div className='pagination navigation hover:cursor-pointer' onClick={prevPage}>
+            <FontAwesomeIcon icon={faArrowLeft} />
           </div>
 
-          <div className='text-xl px-8'>
+          <div className='pagination text-xl mx-8'>
             {pageNo}
           </div>
 
-          <div className='hover:cursor-pointer' onClick={nextPage}>
-            <FontAwesomeIcon icon={faArrowRight} onClick={() => scrollToSection('movies')} />
+          <div className='pagination navigation hover:cursor-pointer' onClick={nextPage}>
+            <FontAwesomeIcon icon={faArrowRight} />
           </div>
         </div>
       </div>
