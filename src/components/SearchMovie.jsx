@@ -51,8 +51,6 @@ const SearchMovie = ({ search }) => {
     return pages;
   };
 
-  console.log("Search movie", searchMovie);
-
   return (
     <div id='movies'>
       {search.length >= 1 && searchMovie.total_results === 0 ?

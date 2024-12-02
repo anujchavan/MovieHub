@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import Banner from './Banner';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -81,20 +81,6 @@ const Movies = ({ watchList, handleWatchList, removeMovieWatchList }) => {
             )
           })}
         </div>
-
-        {/* <div className='text-white py-5 rounded-md flex justify-center items-center'>
-          <div className='pagination navigation hover:cursor-pointer' onClick={prevPage}>
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </div>
-
-          <div className='pagination text-xl mx-8'>
-            {pageNo}
-          </div>
-
-          <div className='pagination navigation hover:cursor-pointer' onClick={nextPage}>
-            <FontAwesomeIcon icon={faArrowRight} />
-          </div>
-        </div> */}
 
         <div className='text-white flex justify-between items-center py-5'>
           <div className='paginationRecord'>
