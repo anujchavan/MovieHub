@@ -102,7 +102,9 @@ const Movies = ({ watchList, handleWatchList, removeMovieWatchList }) => {
           </div>
 
           <div className='font-medium hover:cursor-pointer'>
-            <button className='navigation previous border py-2 px-4' onClick={prevPage} disabled={pageNo === 1}><FontAwesomeIcon icon={faAngleLeft} /></button>
+            <button className='navigation previous border py-2 px-4' onClick={prevPage} disabled={pageNo === 1}>
+              <FontAwesomeIcon icon={faAngleLeft} />
+            </button>
 
             {getVisiblePages().map((page) => (
               <button
@@ -114,7 +116,9 @@ const Movies = ({ watchList, handleWatchList, removeMovieWatchList }) => {
               </button>
             ))}
 
-            <button className='navigation next border py-2 px-4' onClick={nextPage} disabled={pageNo === movies.total_pages}><FontAwesomeIcon icon={faAngleRight} /></button>
+            <button className='navigation next border py-2 px-4' onClick={nextPage} disabled={pageNo === movies.total_pages}>
+              <FontAwesomeIcon icon={faAngleRight} />
+            </button>
           </div>
         </div>
       </div>
